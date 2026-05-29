@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amina Bilal — About</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html" class="active">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero">
+        <span class="eyebrow">About Me</span>
+        <h1>Building software<br/>that makes sense.</h1>
+        <p>
+          I'm Amina Bilal, a Computer & Information Science student at the University of Michigan–Dearborn.
+          I build across the stack — from Android apps and AI-powered tools to JavaFX applications and
+          digital logic systems. I care about clean structure, readable code, and projects that are
+          easy to understand, demo, and maintain.
+        </p>
+        <div class="btnrow">
+          <a class="btn btn-primary" href="https://github.com/aminabk99" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/amina-bilal-926340382/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a class="btn" href="mailto:bilalamina103@gmail.com?subject=Website%20Contact">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What I build</h2>
+        <div class="grid">
+
+          <div class="card">
+            <h3>AI & Security Tools</h3>
+            <p>
+              I've built tools that actually do something useful — an automated GitHub code reviewer
+              powered by a local LLM, a credential stuffing detector using ML, and a simulated
+              firewall with signature-based packet filtering.
+            </p>
+            <div class="meta">
+              <span class="pill">FastAPI</span>
+              <span class="pill">Ollama</span>
+              <span class="pill">ML</span>
+              <span class="pill">Security</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Android Development</h3>
+            <p>
+              I build Android apps with proper architecture — MVVM, Jetpack components, coroutines,
+              and correct permission handling across API levels. My MediaCleaner app has a TikTok-style
+              vertical feed with swipe-to-delete and system trash integration.
+            </p>
+            <div class="meta">
+              <span class="pill">Kotlin</span>
+              <span class="pill">MVVM</span>
+              <span class="pill">Android SDK</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Java & JavaFX Applications</h3>
+            <p>
+              I build interactive desktop apps with clean architecture. BrainstormBubble handles
+              real-time multi-user collaboration over sockets, while Java_Monopoly focuses on
+              keeping game logic cleanly separated from the UI layer.
+            </p>
+            <div class="meta">
+              <span class="pill">Java</span>
+              <span class="pill">JavaFX</span>
+              <span class="pill">OOP</span>
+              <span class="pill">Networking</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Systems & Computer Organization</h3>
+            <p>
+              I enjoy understanding how things work under the hood. My Digital_4BitCPU project
+              helped me connect theory — fetch, decode, execute, write-back — to an actually
+              working build from logic gates up.
+            </p>
+            <div class="meta">
+              <span class="pill">CPU Design</span>
+              <span class="pill">Digital Logic</span>
+              <span class="pill">Datapath</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Right now</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>What I'm focused on</h3>
+            <p>
+              Strengthening my software engineering foundations — clean architecture, documentation,
+              and shipping complete projects. I'm especially interested in growing in AI tooling,
+              Android development, and security-focused engineering.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Open to opportunities</h3>
+            <p>
+              I'm looking for internships and co-ops where I can contribute real work and grow
+              as a developer — software engineering, mobile, cybersecurity, or systems-related roles.
+              If that sounds like a fit, reach out.
+            </p>
+            <div class="btnrow">
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/amina-bilal-926340382/" target="_blank">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a class="btn" href="mailto:bilalamina103@gmail.com?subject=Website%20Contact">
+                <i class="fa-solid fa-envelope"></i> Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
