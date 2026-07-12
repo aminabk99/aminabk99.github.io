@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About — Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html" class="active">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero hero-sm">
+        <h1>About Me</h1>
+        <p>
+          I'm Amina — a Computer &amp; Information Science student at the University of Michigan–Dearborn.
+          I specialize in AI pipelines, agentic systems, and the Azure/Microsoft ecosystem. I build
+          end-to-end AI products with clean architecture and documentation that makes projects
+          easy to understand, run, and extend.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>What I build</h2>
+        <div class="grid grid-4">
+
+          <div class="card">
+            <h3>🤖 AI Pipelines &amp; Agents</h3>
+            <p>Fully local agentic systems: LLM agents with structured action loops, RAG pipelines with LlamaIndex and ChromaDB, transformer models trained from scratch. Projects include DocMind, Local LLM Agent, and AzureAutoFix.</p>
+          </div>
+
+          <div class="card">
+            <h3>☁️ Azure &amp; Microsoft Ecosystem</h3>
+            <p>Azure AD automation via the MS Graph API, enterprise Power Apps with Dataverse backends, and Chrome extensions for live system monitoring. I understand how Microsoft's identity and platform stack fits together.</p>
+          </div>
+
+          <div class="card">
+            <h3>🔐 Developer Tools &amp; Security</h3>
+            <p>Automated PR review bots with HMAC-verified webhooks and RSA JWT auth, ML-based credential stuffing detection, and packet-filtering firewall implementations.</p>
+          </div>
+
+          <div class="card">
+            <h3>📱 Android Development</h3>
+            <p>Native Android apps in Kotlin using MVVM, Jetpack Navigation, Coroutines, and the MediaStore API. I build apps that handle real device permissions and edge cases — not just prototypes.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Right now</h2>
+        <div class="card card-wide">
+          <p>
+            I'm a CIS student at UMich–Dearborn, graduating December 2027, and I'm actively looking for
+            <strong>full-time roles</strong> in AI engineering, ML engineering, or software engineering
+            with an AI/ML focus. I'm especially drawn to roles involving agentic systems, RAG pipelines,
+            or Azure-adjacent infrastructure.
+          </p>
+          <p>
+            Outside of coursework, I'm building on my strongest projects — adding CI/CD, tests, and
+            production-quality polish — and deepening my understanding of how large language models
+            work at a systems level. I also do AI research on campus.
+          </p>
+          <p>
+            The best way to reach me is <a href="mailto:bilalamina103@gmail.com">bilalamina103@gmail.com</a>
+            or <a href="https://www.linkedin.com/in/amina-bilal-926340382/" target="_blank">LinkedIn</a>.
+          </p>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
