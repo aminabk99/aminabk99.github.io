@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero hero-sm">
+        <h1>Projects</h1>
+        <p>End-to-end builds — agentic AI systems, RAG pipelines, enterprise apps, Android, and systems-level work.</p>
+      </section>
+
+      <!-- ──────────────── AI PIPELINES & AGENTS ──────────────── -->
+      <section class="section">
+        <h2>🤖 AI Pipelines &amp; Agents</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/AzureAutoFix" target="_blank">
+            <div class="card-top">
+              <h3>AzureAutoFix</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>Agentic Azure AD error resolution system. A Chrome extension captures AADSTS error codes, a from-scratch PyTorch transformer classifies them against a custom AD error taxonomy (15 error codes), and the MS Graph API resolves admin-level issues automatically — in under 10 seconds. Two-tier security on write operations. Deployed on Railway via Docker.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Agentic AI</span>
+              <span class="pill">PyTorch</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Azure AD</span>
+              <span class="pill">MS Graph API</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Railway</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/docmind" target="_blank">
+            <div class="card-top">
+              <h3>DocMind</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>Fully local RAG document intelligence app. Upload PDFs, ask natural-language questions, and get cited answers with cosine-similarity confidence scores. LlamaIndex handles ingestion, ChromaDB stores vectors with Ollama nomic-embed-text embeddings, and llama3.2 generates answers — no API keys, no cloud cost. Containerized with Docker Compose.</p>
+            <div class="meta">
+              <span class="pill pill-accent">RAG</span>
+              <span class="pill">LlamaIndex</span>
+              <span class="pill">ChromaDB</span>
+              <span class="pill">Ollama</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Docker</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/Local_LLM_Agent" target="_blank">
+            <div class="card-top">
+              <h3>Local LLM Agent</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A fully local AI coding agent that autonomously writes, reads, and executes files via a structured JSON action loop with up to 20 steps. Includes a fallback parser for malformed LLM output. FastAPI backend with session memory and a dark-themed web UI.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Agentic AI</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Ollama</span>
+              <span class="pill">Python</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/SentinelCodeAI" target="_blank">
+            <div class="card-top">
+              <h3>SentinelCodeAI</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>Automated GitHub PR review bot. Verifies PR webhooks with HMAC-SHA256, authenticates as a GitHub App using RSA-signed JWTs, fetches diffs, and posts structured AI reviews covering bugs, security, performance, and suggestions — powered entirely by a locally-hosted LLM.</p>
+            <div class="meta">
+              <span class="pill pill-accent">AI</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Ollama</span>
+              <span class="pill">GitHub App API</span>
+              <span class="pill">Security</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ──────────────── SECURITY & AUTOMATION ──────────────── -->
+      <section class="section">
+        <h2>🔐 Security &amp; Automation</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/ai_credential_detector" target="_blank">
+            <div class="card-top">
+              <h3>AI Credential Detector</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>Detects credential stuffing attacks using ML. Trains on authentication log data, engineering features from IP request frequency, retry patterns, and timing metrics to distinguish automated bots from human logins. Ships with a FastAPI endpoint for real-time inference.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Security</span>
+              <span class="pill">Python</span>
+              <span class="pill">ML</span>
+              <span class="pill">FastAPI</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/Firewall_python" target="_blank">
+            <div class="card-top">
+              <h3>Python Firewall</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A packet-filtering firewall implementation in Python. Intercepts and inspects network traffic, applies rule-based allow/deny policies, and logs packet activity. Demonstrates low-level network programming and security concepts.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Security</span>
+              <span class="pill">Python</span>
+              <span class="pill">Networking</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ──────────────── CLOUD & ENTERPRISE ──────────────── -->
+      <section class="section">
+        <h2>☁️ Cloud &amp; Enterprise</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/Enterprise-Expense-Tracker" target="_blank">
+            <div class="card-top">
+              <h3>Enterprise Expense Tracker</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A 5-screen enterprise canvas app built in Microsoft Power Apps with a Dataverse backend. Integrates Office 365 user identity for per-user data filtering, live spend dashboards, and monthly trend charts. Features a global theming system (Default, Dark, High Contrast) driven by a single URL parameter — swaps every color and icon in the app with one value.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Power Apps</span>
+              <span class="pill">Dataverse</span>
+              <span class="pill">PowerFx</span>
+              <span class="pill">Office 365</span>
+              <span class="pill">Microsoft 365</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ──────────────── ANDROID & MOBILE ──────────────── -->
+      <section class="section">
+        <h2>📱 Android &amp; Mobile</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/Gallery-Sorter" target="_blank">
+            <div class="card-top">
+              <h3>Gallery-Sorter</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>TikTok-style Android gallery cleaner. Loads all photos and videos into a full-screen vertical swipe feed — swipe left to delete. Handles Android 11+ system permission dialogs, video autoplay, and deleted item history via SharedPreferences. Built with MVVM architecture, Coroutines, and Jetpack Navigation.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Android</span>
+              <span class="pill">Kotlin</span>
+              <span class="pill">MVVM</span>
+              <span class="pill">MediaStore API</span>
+              <span class="pill">Jetpack</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/MediaCleaner" target="_blank">
+            <div class="card-top">
+              <h3>MediaCleaner</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>Android app for identifying and removing duplicate and similar media files. Scans the device's media store, computes similarity hashes, and presents duplicates in a review UI — helping users reclaim storage without accidentally losing unique files.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Android</span>
+              <span class="pill">Kotlin</span>
+              <span class="pill">MediaStore API</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ──────────────── JAVA APPLICATIONS ──────────────── -->
+      <section class="section">
+        <h2>☕ Java Applications</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/Java_BrainstormBubble" target="_blank">
+            <div class="card-top">
+              <h3>BrainstormBubble</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A JavaFX mind-mapping tool. Drag and drop nodes, draw connections, and organize ideas visually. Supports adding, editing, and removing thought nodes on a zoomable canvas with a clean UI for focused brainstorming sessions.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Java</span>
+              <span class="pill">JavaFX</span>
+            </div>
+          </a>
+
+          <a class="card card-link" href="https://github.com/aminabk99/Java_Monopoly" target="_blank">
+            <div class="card-top">
+              <h3>Java Monopoly</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A multiplayer Monopoly implementation in Java with a JavaFX GUI. Includes full game logic: property purchasing, rent calculation, chance/community chest cards, jail, and win/lose conditions — playable end-to-end.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Java</span>
+              <span class="pill">JavaFX</span>
+              <span class="pill">OOP</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ──────────────── SYSTEMS & HARDWARE ──────────────── -->
+      <section class="section">
+        <h2>⚙️ Systems &amp; Hardware</h2>
+        <div class="grid">
+
+          <a class="card card-link" href="https://github.com/aminabk99/Digital_4BitCPU" target="_blank">
+            <div class="card-top">
+              <h3>Digital 4-Bit CPU</h3>
+              <span class="card-arrow">↗</span>
+            </div>
+            <p>A fully functional 4-bit R-Type CPU built from logic gates in a digital circuit simulator. Implements the complete datapath: program counter, instruction registers, register file, ALU, and control logic — stepping through fetch, decode, execute, and write-back stages.</p>
+            <div class="meta">
+              <span class="pill pill-accent">Digital Logic</span>
+              <span class="pill">CPU Design</span>
+              <span class="pill">Computer Organization</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
