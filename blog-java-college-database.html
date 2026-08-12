@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building a Java College Database | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>A Java college database, and what a team project taught me about relational integrity</h1>
+        <p class="post-meta">January 2026 · <a href="https://github.com/aminabk99/Java_CollegeDatabase" target="_blank">GitHub</a></p>
+        <p class="post-meta">Java · SQLite · JDBC</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This was a team project: a Java console application that models a college's core academic
+          entities, students, faculty, courses, sections, and enrollments, with full CRUD operations
+          backed by a SQLite database. It launches a console menu where you pick which entity to
+          manage, and depending on the entity you can add, read, update, or in the case of enrollments,
+          delete records.
+        </p>
+        <p>
+          Every operation goes through one class that uses JDBC PreparedStatements to safely execute
+          SQL against a local SQLite file, and each entity is modeled as its own Java class with
+          private fields, getters, setters, and a toString override.
+        </p>
+        <p>
+          Hardest part: managing relational integrity by hand. Enrollments reference sections, and
+          sections reference both courses and faculty, so deleting or updating a parent record meant
+          carefully thinking through the cascading effects ourselves, without an ORM to handle it
+          automatically.
+        </p>
+        <p>
+          Most interesting part: using PreparedStatements with placeholders instead of building SQL
+          strings by concatenation. It's a small habit, but it prevents SQL injection outright and
+          makes the parameter binding explicit, and it's the kind of thing that matters a lot more in
+          a real system than it looks like it should in a classroom project.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

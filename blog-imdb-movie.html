@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building the IMDb Movie Review Classifier | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Classifying movie reviews without training a single model</h1>
+        <p class="post-meta">April 2026 · <a href="https://github.com/aminabk99/IMDb-Movie" target="_blank">GitHub</a></p>
+        <p class="post-meta">Python · NLTK · Lexicon-based sentiment analysis</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This project classifies IMDb movie reviews as positive or negative using a weighted
+          sentiment lexicon built directly from IMDb's own vocabulary files. No neural network, no
+          training loop, just scored word matching. I wanted to see how far a genuinely simple,
+          fully transparent method could get on a real sentiment task.
+        </p>
+        <p>
+          The pipeline has two stages. First, every review gets cleaned: HTML tags stripped,
+          lowercased, punctuation removed, stopwords filtered, and Porter stemming applied, then saved
+          to CSVs. Second, I load IMDb's vocabulary file paired with its per-word rating file to build
+          a weighted lexicon, dropping any word with an absolute rating below 0.15 since those words
+          carry too little signal to be worth keeping. Each review's words are summed against that
+          lexicon, and a total below negative 0.5 gets classified negative, anything else positive.
+          There's also an interactive mode where you can type any review and get an instant prediction.
+        </p>
+        <p>
+          It gets around 70% accuracy on the IMDb test set with zero model training.
+        </p>
+        <p>
+          Hardest part: calibrating the lexicon threshold by hand. Too low and too many neutral words
+          drowned out the real signal, too high and there were too few words left to score anything
+          meaningfully. The 0.15 cutoff and the negative 0.5 classification boundary were both tuned
+          against the test set rather than picked from theory.
+        </p>
+        <p>
+          Most interesting part: getting solid accuracy without training anything. The entire
+          classification decision is a sum of pre-rated word scores, which means the decision boundary
+          is completely transparent, you can read exactly why a given review was classified the way it
+          was. That's something no neural network can hand you for free.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

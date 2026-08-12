@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building SentinelCodeAI | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building SentinelCodeAI: a PR review bot that runs entirely on your own machine</h1>
+        <p class="post-meta">May 2026 · <a href="https://github.com/aminabk99/SentinelCodeAI" target="_blank">GitHub</a></p>
+        <p class="post-meta">Python · FastAPI · Ollama · GitHub App API · HMAC-SHA256</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          SentinelCodeAI is a GitHub App that reviews every pull request automatically, using a
+          locally hosted LLM. No API key, no cloud, no cost per review. I built it because AI code
+          review tools are usually a paid API call per PR, and I wanted to see if a local model could
+          do the job well enough to be actually useful, not just a demo.
+        </p>
+        <p>
+          When a developer opens a PR, GitHub fires a webhook to a FastAPI server I wrote. The server
+          verifies the HMAC-SHA256 signature on that webhook, fetches the diff, and sends it to
+          qwen2.5-coder running through Ollama. The bot posts a structured review comment back on the
+          PR automatically, covering bugs, security, performance, and general suggestions, plus a
+          short summary.
+        </p>
+        <p>
+          Hardest part: GitHub App authentication. The app signs short-lived JWTs with an RSA key and
+          exchanges them for installation-scoped tokens, and a silent 401 from a mismatched webhook
+          secret took the most debugging to track down. Nothing about it fails loudly, it just quietly
+          doesn't post a review, so I had to add real logging before I could see what was going wrong.
+        </p>
+        <p>
+          Most interesting part: how much prompt engineering actually changes the output. Adding a
+          single line telling the model to never hallucinate issues that aren't in the diff, and
+          forcing strict output sections, turned vague, generic-sounding reviews into ones that
+          actually pointed at real lines and real problems. It's a good reminder that the model
+          quality matters less than I expected and the prompt structure matters more.
+        </p>
+        <p>
+          Every webhook request gets verified with HMAC-SHA256 before anything runs, and the app's
+          private key and secrets stay out of source control. Next on my list: inline comments on the
+          specific changed lines instead of one summary comment, and severity scoring tied to GitHub
+          status checks.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

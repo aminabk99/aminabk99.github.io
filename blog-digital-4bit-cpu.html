@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building a 4-Bit CPU from Logic Gates Up | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building a 4-bit CPU from individual logic gates up</h1>
+        <p class="post-meta">December 2025 · <a href="https://github.com/aminabk99/Digital_4BitCPU" target="_blank">GitHub</a></p>
+        <p class="post-meta">Digital logic simulator · Computer organization</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is a 4-bit R-Type CPU I designed and simulated in the Digital logic simulator, built
+          from scratch starting at the gate level and working up through a full adder, an ALU, a
+          register file, a program counter, instruction memory, and a 5-stage pipeline FSM into a
+          complete functioning processor.
+        </p>
+        <p>
+          Everything is built hierarchically, each circuit is its own subcircuit that plugs into the
+          next level up. A 1-bit full adder chains into a 4-bit adder, which feeds an ALU that
+          multiplexes between add, subtract, and pass-through. Four general purpose registers built
+          from D flip-flops form a register file with two simultaneous read ports. A 16-row instruction
+          memory and a program counter with increment logic feed a 5-stage pipeline, fetch twice,
+          decode, execute, write back, all driven by a single clock. I validated the whole thing with a
+          test case that runs LDI, ADD, and SUB instructions through the full pipeline and checks the
+          result.
+        </p>
+        <p>
+          Hardest part: wiring the instruction decode stage. Splitting the fetched instruction into
+          opcode and register fields, routing those through multiplexers to control both the register
+          file's write port and the ALU's operation select at the same time, and keeping all of it in
+          sync with the 5-stage FSM clock took the most debugging of the whole project.
+        </p>
+        <p>
+          Most interesting part: watching a real program execute. Loading <code>LDI R1, #5</code>, then
+          <code>LDI R2, #3</code>, then <code>ADD R2, R1</code>, and seeing the ALU output land on 8 at
+          exactly the execute stage made the entire bottom-up build feel worth it. It's one thing to
+          know a CPU works in theory, it's another to watch your own gates produce the right number.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

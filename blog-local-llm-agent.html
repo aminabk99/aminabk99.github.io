@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building the Local LLM Coding Agent | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building a fully local coding agent with a 20-step JSON action loop</h1>
+        <p class="post-meta">January 2026 · <a href="https://github.com/aminabk99/Local_LLM_Agent" target="_blank">GitHub</a></p>
+        <p class="post-meta">Python · FastAPI · Ollama · qwen2.5-coder</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is a Python coding agent powered by Ollama and qwen2.5-coder that takes a task, breaks
+          it into tool calls, and autonomously writes files, reads code, and runs shell commands. It
+          works through a structured JSON action loop, up to 20 steps per task, exposed through a
+          FastAPI <code>/chat</code> endpoint with a dark-themed web UI.
+        </p>
+        <p>
+          You send it a task, something like "write a Python script that scrapes headlines," and the
+          agent enters the loop: each step the model returns one action as a JSON object, the agent
+          executes it using one of four tools (list files, read file, write file, run command),
+          appends the result to history, and loops again. After up to 20 steps it calls finish and
+          returns the final response. Every file operation is sandboxed to a workspace folder, so
+          nothing outside it can be touched, and shell commands run with that folder as the working
+          directory.
+        </p>
+        <p>
+          Hardest part: recovering JSON from a chatty model. qwen2.5-coder sometimes wraps its JSON in
+          markdown code fences or adds explanation text before the actual object, so a strict parser
+          would just fail. I built a fallback parser that scans for the first <code>{</code> and last
+          <code>}</code> in the response and tries to extract valid JSON from that slice. It handles
+          roughly 95% of malformed outputs without needing to re-prompt the model.
+        </p>
+        <p>
+          Most interesting part: the 600 second timeout. On the first run, Ollama has to load the full
+          7B model into memory, which can take 30 to 60 seconds on a CPU. Without an extended timeout
+          the agent would crash before the model even responded. I added a short retry message that
+          explains what happened if it still times out, instead of just throwing an exception at the
+          user. It's a small fix, but it's the difference between an agent that feels broken and one
+          that feels like it's just thinking.
+        </p>
+        <p>
+          No API keys and no cloud calls anywhere in this one. The whole thing runs on your machine,
+          which was the point: I wanted to know how far a fully local setup could get before it needed
+          real infrastructure.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

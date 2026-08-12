@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building M365Mind | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building M365Mind: ask your Microsoft 365 governance a question and get the real policy back</h1>
+        <p class="post-meta">June 2026 · <a href="https://github.com/aminabk99/M365Mind" target="_blank">GitHub</a></p>
+        <p class="post-meta">Python · FastAPI · ChromaDB · BM25 · Cross-encoder reranking · Ollama</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This project started as DocMind, a local RAG app for asking questions about PDFs. I kept
+          working on it and it turned into something more specific: M365Mind, a tool that answers
+          questions about Microsoft 365 governance policies, things like Conditional Access rules,
+          Sensitivity Labels, and Named Locations, and gives you the exact policy back with a
+          citation, not a paraphrase.
+        </p>
+        <p>
+          Most "chat with your docs" tools embed a question, grab the nearest vectors, and hand them
+          to an LLM. I treated retrieval as the actual product instead of plumbing, because on a
+          governance question the right policy matters more than fluent prose. Policy language is
+          templated and keyword-heavy, words like "require," "block," "grant," exact label names,
+          which pure vector search can wash out, while pure keyword search misses paraphrases. So I
+          run both at once: dense vectors over ChromaDB and BM25 keyword search, each returning their
+          top 20, then merge the two rankings with Reciprocal Rank Fusion. That gives me a strong
+          shortlist without needing either score calibrated against the other.
+        </p>
+        <p>
+          The shortlist then goes through a cross-encoder that reads each question and policy pair
+          together and scores real relevance, which a retriever working in isolation can't do. The
+          reranked top results become the answer's sources. By default the answer is extractive,
+          built straight from the top-ranked policy text with no model generation, so it comes back
+          in well under a second. There's an optional "Explain with AI" mode that sends the same
+          sources to a local Ollama model for a natural-language summary, and every citation the
+          model produces gets checked against the actual retrieved sources before it's shown. The
+          model isn't allowed to invent a source.
+        </p>
+        <p>
+          Every answer also carries a confidence score, and getting that honest took a real fix. The
+          cross-encoder outputs an unbounded relevance score per policy, and my first version squashed
+          it with an arbitrary linear formula that pinned almost every genuine match near 0.5, so even
+          a perfect answer looked uncertain. I replaced that with a sigmoid, the actual calibrated
+          inverse of a logit, applied to the average of the top two reranked scores. Strong matches
+          now read as strong instead of hovering at a coin flip.
+        </p>
+        <p>
+          Hardest part: the confidence calibration bug was the kind of thing that doesn't throw an
+          error, it just quietly makes every answer look less trustworthy than it is. I only caught it
+          by actually reading the numbers next to answers I knew were correct and noticing they didn't
+          match my own judgment of how good the retrieval was.
+        </p>
+        <p>
+          Most interesting part: building an eval set instead of trusting my own read of the outputs.
+          I wrote governance test cases grounded in the demo policies, including a deliberately
+          out-of-scope question that the system should refuse rather than answer, and score every run
+          on faithfulness and relevance so quality is tracked over time instead of asserted once.
+          Everything runs locally, embeddings, reranking, and generation, so no policy content leaves
+          the machine.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

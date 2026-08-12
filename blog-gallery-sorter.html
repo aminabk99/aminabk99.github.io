@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building Gallery-Sorter | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building Gallery-Sorter: a TikTok-style swipe feed for cleaning up your phone's gallery</h1>
+        <p class="post-meta">May 2026 · <a href="https://github.com/aminabk99/Gallery-Sorter" target="_blank">GitHub</a></p>
+        <p class="post-meta">Kotlin · MVVM · Jetpack · MediaStore API</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          Gallery-Sorter loads your photos and videos into a vertical swipe feed, newest first, and you
+          swipe left to delete. The idea was to turn the tedious job of cleaning up a camera roll into
+          something closer to the muscle memory people already have from swipe-based apps.
+        </p>
+        <p>
+          On launch the app requests photo and video permission, loads everything from device storage
+          into a vertical ViewPager2 feed, and lets you swipe left on any item to delete it. On Android
+          11 and up, the system shows its own confirmation dialog before anything actually gets
+          removed, and the names of deleted items are saved persistently so you can review them later
+          from the profile screen. It's built with MVVM and Jetpack components: a ViewModel holding
+          feed state, Coroutines for async work, and the MediaStore API for reading and writing device
+          media.
+        </p>
+        <p>
+          Hardest part: getting swipe-to-delete right across Android versions. Android 11+ requires
+          launching a system IntentSender for user confirmation, while older versions need a direct
+          ContentResolver update instead, and both paths had to be handled cleanly so the UI never got
+          left in a broken state if the user backed out of the confirmation.
+        </p>
+        <p>
+          Most interesting part: the feed itself. Using ViewPager2 in vertical orientation combined
+          with ItemTouchHelper for the horizontal swipe gesture gives the app a genuinely satisfying
+          TikTok-like feel, entirely with standard Android components and no third-party swipe
+          libraries.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

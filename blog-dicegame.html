@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building a UMICH-Themed Dice Game | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>A one-player dice game, styled in maize and blue</h1>
+        <p class="post-meta">May 2026 · <a href="https://github.com/aminabk99/DiceGame" target="_blank">GitHub</a></p>
+        <p class="post-meta">Kotlin · Android Studio</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is a small one-player Android app built in Kotlin, styled in University of Michigan
+          maize and blue. Tap Roll Dice, watch your score change, and see how long you last before you
+          hit the loss condition.
+        </p>
+        <p>
+          Each roll affects a running total score, odd rolls subtract and even rolls add, and a total
+          rolls counter increments with every tap. When the loss condition is reached, the roll button
+          disables and a message shows how many rolls it took to get there. Tap restart and everything
+          resets to zero.
+        </p>
+        <p>
+          Hardest part: rendering the correct dice face for each roll value. Mapping the integer result
+          to the right dot layout took careful view updates to make sure the UI refreshed cleanly on
+          every tap without any flicker.
+        </p>
+        <p>
+          Most interesting part: the UMICH theming. Matching the exact maize and navy palette and
+          adding the block M logo turned a generic dice roller into something with actual personality,
+          which is a small detail but it's the difference between a tutorial project and one that feels
+          like mine.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulating a Power Grid in C++ | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Using a power grid to practice C++ data structures, from raw pointers up</h1>
+        <p class="post-meta">January 2026 · <a href="https://github.com/aminabk99/PowerGrid_Simulation_CPP" target="_blank">GitHub</a></p>
+        <p class="post-meta">C++ · OOP · Linked lists · Stacks</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is three small, independent C++ programs that all use a power grid as the domain, each
+          one targeting a different data structures concept. <code>powerplant.cpp</code> defines a
+          PowerPlant class and works through default and parameterized constructors plus dynamic
+          memory with <code>new</code> and <code>delete</code>. <code>powergrid_linked_list.cpp</code>
+          builds a singly linked list of plant nodes, traverses it to find the maximum capacity plant,
+          and implements removal with proper cleanup. <code>powergrid_event_stack.cpp</code>
+          implements a LIFO stack of timestamped grid events, faults, maintenance, startups, backed by
+          a custom linked list instead of the standard library's stack.
+        </p>
+        <p>
+          Hardest part: manual memory management in the linked list. Every removal requires saving the
+          head pointer, advancing head, then deleting the saved pointer in the right order, and getting
+          that sequence wrong causes either a dangling pointer or a memory leak with no compile-time
+          warning to catch it.
+        </p>
+        <p>
+          Most interesting part: building the stack from raw node pointers instead of using
+          <code>std::stack</code>. It makes the LIFO behavior completely transparent, you can see
+          exactly what push and pop do at the memory level, which is the whole point of doing it by
+          hand once before reaching for the standard library version.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

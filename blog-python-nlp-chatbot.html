@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building a Rule-Based NLP Chatbot | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>A rule-based NLP chatbot, built to demonstrate the pipeline, not to be a product</h1>
+        <p class="post-meta">January 2026 · <a href="https://github.com/aminabk99/Python_NLP-Chatbot" target="_blank">GitHub</a></p>
+        <p class="post-meta">Python · Standard library only</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This chatbot demonstrates the core stages of an NLP pipeline, tokenization, vocabulary
+          filtering, unknown word handling, and rule-based response generation, using nothing but
+          Python's standard library. No models, no APIs, no dependencies.
+        </p>
+        <p>
+          A message comes in, gets lowercased and stripped of punctuation, and each word is checked
+          against a small defined vocabulary. Anything not recognized gets replaced with an
+          <code>[UNK]</code> token. The known tokens are then mapped through a co-occurrence table to
+          generate a response, and if nothing usable comes out of that, a fallback message is returned
+          instead.
+        </p>
+        <p>
+          Hardest part: keeping it simple on purpose. It would have been easy to bolt on a real model
+          or an API call, but the point was to show that a meaningful NLP pipeline, tokenize, filter,
+          map, respond, works even at a tiny scale, without hiding the mechanics behind a library.
+        </p>
+        <p>
+          Most interesting part: the <code>[UNK]</code> token pattern. It's the same idea real neural
+          NLP systems use to handle out-of-vocabulary words, and this project shows that concept
+          working in about 60 lines of plain Python. Sometimes the smallest version of an idea teaches
+          it better than the production one does.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

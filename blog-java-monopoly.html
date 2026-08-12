@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building Monopoly in JavaFX | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building a playable Monopoly clone in JavaFX</h1>
+        <p class="post-meta">January 2026 · <a href="https://github.com/aminabk99/Java_Monopoly" target="_blank">GitHub</a></p>
+        <p class="post-meta">Java · JavaFX · OOP</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is a multiplayer Monopoly implementation in Java with a full JavaFX GUI, playable start
+          to finish. It handles property purchasing, rent calculation, chance and community chest
+          cards, jail, and win or lose conditions, all with a board that actually shows player movement
+          and property ownership as the game goes.
+        </p>
+        <p>
+          The game logic and the GUI are split across two files, one holding the core Monopoly rules
+          and state, the other driving the JavaFX application and rendering the board. Getting a full
+          board game working end to end meant modeling a lot of interacting state at once: whose turn
+          it is, where every player sits, who owns what, and how much cash everyone has left, all
+          staying in sync with what's rendered on screen.
+        </p>
+        <p>
+          The most useful part of building this wasn't any single mechanic, it was seeing how quickly
+          object-oriented design either pays off or falls apart once a game has this many interacting
+          rules. Properties, players, and cards all needed clean interfaces so that adding one rule
+          didn't mean touching five unrelated classes to keep the board consistent.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

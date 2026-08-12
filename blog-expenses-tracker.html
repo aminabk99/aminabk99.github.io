@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building the Expense Tracker | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building an enterprise expense tracker on Power Apps, then adding a real approval workflow</h1>
+        <p class="post-meta">July 2026 · <a href="https://github.com/aminabk99/ExpensesTracker-PowerApps" target="_blank">GitHub</a></p>
+        <p class="post-meta">Power Apps · Dataverse · Power Automate · PowerFx · Office 365</p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          This is a business expense tracking app built on Microsoft Power Apps and Dataverse, where
+          employees submit, review, and manage expenses from a single mobile-first interface. It has
+          live spending dashboards, a monthly trend chart, quick-fill templates for common expense
+          types, and three themes (Default, Dark, High Contrast) that switch with a single URL
+          parameter instead of touching individual controls.
+        </p>
+        <p>
+          The theming works through two global variables set on app load: one full color palette with
+          three variants per color, and a resolver that picks the right variant based on the active
+          theme. Every control references the resolver instead of a hardcoded value, so changing the
+          whole app's appearance is one parameter, not a pass through every screen.
+        </p>
+        <p>
+          Once the core tracker worked, I layered a self-service access request workflow on top of it.
+          An employee requests Teams or SharePoint access from inside the app, their manager approves
+          or rejects it through Power Automate's Approvals connector, and the system updates the
+          request status automatically. There's no live Microsoft 365 tenant behind this build, so the
+          actual grant is simulated by updating a Dataverse field, but the approval and branching logic
+          runs exactly as it would against a real tenant. I tested both branches with two real
+          requests, one approved and one rejected, and confirmed the flow updates the right status
+          both ways, not just on the happy path.
+        </p>
+        <p>
+          Hardest part: Power Automate only gives you a single unified trigger for row changes, added,
+          modified, or deleted, so I had to explicitly filter it down to "Added" to get the behavior I
+          wanted. I lost progress on the flow once and had to rebuild it from scratch. The Update a Row
+          action also exposed close to a dozen fields at once, including a confusing pair where my own
+          custom Status field sat right next to Dataverse's built-in Status fields, so I had to
+          carefully remove every field except mine on both branches to avoid writing to the wrong
+          place.
+        </p>
+        <p>
+          Most interesting part: the quick-create templates on the home screen. Instead of making
+          people navigate to the form and manually pick a category, the three most common expense
+          types show up as one-tap shortcuts that pre-fill the category field. It's a small thing, but
+          it's built entirely in PowerFx with no custom connectors, and it's the kind of friction
+          reduction that real enterprise apps care about.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
