@@ -3,8 +3,8 @@
 :root {
   --x: 50%;
   --y: 50%;
-  --pink: #ff6ea8;
-  --blue: #38bdf8;
+  --accent: #38bdf8;
+  --accent2: #6366f1;
   --dark: rgba(0, 0, 0, 0.28);
   --border: rgba(255, 255, 255, 0.13);
   --glass: rgba(255, 255, 255, 0.06);
@@ -23,7 +23,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  background: radial-gradient(ellipse at var(--x) var(--y), #ff6ea8 0%, #9b4dca 40%, #1a1a2e 100%);
+  background: radial-gradient(ellipse at var(--x) var(--y), var(--accent) 0%, var(--accent2) 40%, #0f172a 100%);
   transition: background 0.1s;
   overflow-x: hidden;
 }
@@ -67,7 +67,7 @@ header {
   font-weight: 800;
   font-size: 1.15rem;
   letter-spacing: -0.3px;
-  background: linear-gradient(135deg, #fff 40%, var(--pink));
+  background: linear-gradient(135deg, #fff 40%, var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -186,7 +186,7 @@ p { opacity: 0.9; font-size: 0.97rem; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,110,168,0.06) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(56,189,248,0.09) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.25s;
   pointer-events: none;
@@ -247,9 +247,9 @@ p { opacity: 0.9; font-size: 0.97rem; }
 }
 
 .pill-accent {
-  background: rgba(255, 110, 168, 0.18);
-  border-color: rgba(255, 110, 168, 0.3);
-  color: #ffb3d1;
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.32);
+  color: #a8dcfb;
 }
 
 /* ── BUTTONS ── */
@@ -282,13 +282,13 @@ p { opacity: 0.9; font-size: 0.97rem; }
 }
 
 .btn-primary {
-  background: rgba(255, 110, 168, 0.22);
-  border-color: rgba(255, 110, 168, 0.35);
+  background: rgba(56, 189, 248, 0.20);
+  border-color: rgba(56, 189, 248, 0.38);
 }
 
 .btn-primary:hover {
-  background: rgba(255, 110, 168, 0.32);
-  border-color: rgba(255, 110, 168, 0.5);
+  background: rgba(56, 189, 248, 0.30);
+  border-color: rgba(56, 189, 248, 0.55);
 }
 
 /* ── DIVIDER ── */
