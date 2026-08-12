@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Projects — Amina Bilal</title>
+    <title>Projects | Amina Bilal</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
   </head>
@@ -16,6 +16,7 @@
           <a href="projects.html" class="active">Projects</a>
           <a href="skills.html">Skills</a>
           <a href="about.html">About</a>
+          <a href="blog.html">Blog</a>
         </nav>
       </div>
     </header>
@@ -24,7 +25,7 @@
 
       <section class="hero hero-sm">
         <h1>Projects</h1>
-        <p>End-to-end builds — agentic AI systems, RAG pipelines, enterprise apps, Android, and systems-level work.</p>
+        <p>Agentic AI systems, RAG pipelines, enterprise apps, Android, and a few systems-level projects from coursework.</p>
       </section>
 
       <!-- ──────────────── AI PIPELINES & AGENTS ──────────────── -->
@@ -37,7 +38,7 @@
               <h3>AzureAutoFix</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>Agentic Azure AD error resolution system. A Chrome extension captures AADSTS error codes, a from-scratch PyTorch transformer classifies them against a custom AD error taxonomy (15 error codes), and the MS Graph API resolves admin-level issues automatically — in under 10 seconds. Two-tier security on write operations. Deployed on Railway via Docker.</p>
+            <p>Agentic Azure AD error resolution system. A Chrome extension captures AADSTS error codes, a from-scratch PyTorch transformer classifies them against a custom AD error taxonomy (15 error codes), and the MS Graph API resolves admin-level issues automatically, usually in under 10 seconds. Two-tier security on write operations, so nothing gets fixed without someone actually authorized to fix it. Deployed on Railway via Docker.</p>
             <div class="meta">
               <span class="pill pill-accent">Agentic AI</span>
               <span class="pill">PyTorch</span>
@@ -54,7 +55,7 @@
               <h3>DocMind</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>Fully local RAG document intelligence app. Upload PDFs, ask natural-language questions, and get cited answers with cosine-similarity confidence scores. LlamaIndex handles ingestion, ChromaDB stores vectors with Ollama nomic-embed-text embeddings, and llama3.2 generates answers — no API keys, no cloud cost. Containerized with Docker Compose.</p>
+            <p>Fully local RAG document intelligence app. Upload PDFs, ask natural-language questions, and get cited answers with cosine-similarity confidence scores. LlamaIndex handles ingestion, ChromaDB stores vectors with Ollama nomic-embed-text embeddings, and llama3.2 generates answers. No API keys, no cloud cost. Containerized with Docker Compose.</p>
             <div class="meta">
               <span class="pill pill-accent">RAG</span>
               <span class="pill">LlamaIndex</span>
@@ -84,7 +85,7 @@
               <h3>SentinelCodeAI</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>Automated GitHub PR review bot. Verifies PR webhooks with HMAC-SHA256, authenticates as a GitHub App using RSA-signed JWTs, fetches diffs, and posts structured AI reviews covering bugs, security, performance, and suggestions — powered entirely by a locally-hosted LLM.</p>
+            <p>Automated GitHub PR review bot. Verifies PR webhooks with HMAC-SHA256, authenticates as a GitHub App using RSA-signed JWTs, fetches diffs, and posts structured AI reviews covering bugs, security, performance, and suggestions. Runs entirely on a locally-hosted LLM.</p>
             <div class="meta">
               <span class="pill pill-accent">AI</span>
               <span class="pill">FastAPI</span>
@@ -142,7 +143,7 @@
               <h3>Enterprise Expense Tracker</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>A 5-screen enterprise canvas app built in Microsoft Power Apps with a Dataverse backend. Integrates Office 365 user identity for per-user data filtering, live spend dashboards, and monthly trend charts. Features a global theming system (Default, Dark, High Contrast) driven by a single URL parameter — swaps every color and icon in the app with one value.</p>
+            <p>A 5-screen enterprise canvas app built in Microsoft Power Apps with a Dataverse backend. Integrates Office 365 user identity for per-user data filtering, live spend dashboards, and monthly trend charts. Features a global theming system (Default, Dark, High Contrast) driven by a single URL parameter, so one value swaps every color and icon in the app.</p>
             <div class="meta">
               <span class="pill pill-accent">Power Apps</span>
               <span class="pill">Dataverse</span>
@@ -165,7 +166,7 @@
               <h3>Gallery-Sorter</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>TikTok-style Android gallery cleaner. Loads all photos and videos into a full-screen vertical swipe feed — swipe left to delete. Handles Android 11+ system permission dialogs, video autoplay, and deleted item history via SharedPreferences. Built with MVVM architecture, Coroutines, and Jetpack Navigation.</p>
+            <p>TikTok-style Android gallery cleaner. Loads all photos and videos into a full-screen vertical swipe feed, swipe left to delete. Handles Android 11+ system permission dialogs, video autoplay, and deleted item history via SharedPreferences. Built with MVVM architecture, Coroutines, and Jetpack Navigation.</p>
             <div class="meta">
               <span class="pill pill-accent">Android</span>
               <span class="pill">Kotlin</span>
@@ -180,7 +181,7 @@
               <h3>MediaCleaner</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>Android app for identifying and removing duplicate and similar media files. Scans the device's media store, computes similarity hashes, and presents duplicates in a review UI — helping users reclaim storage without accidentally losing unique files.</p>
+            <p>Android app for identifying and removing duplicate and similar media files. Scans the device's media store, computes similarity hashes, and presents duplicates in a review UI, so users can reclaim storage without accidentally losing unique files.</p>
             <div class="meta">
               <span class="pill pill-accent">Android</span>
               <span class="pill">Kotlin</span>
@@ -213,7 +214,7 @@
               <h3>Java Monopoly</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>A multiplayer Monopoly implementation in Java with a JavaFX GUI. Includes full game logic: property purchasing, rent calculation, chance/community chest cards, jail, and win/lose conditions — playable end-to-end.</p>
+            <p>A multiplayer Monopoly implementation in Java with a JavaFX GUI. Includes full game logic: property purchasing, rent calculation, chance/community chest cards, jail, and win/lose conditions. Playable start to finish.</p>
             <div class="meta">
               <span class="pill pill-accent">Java</span>
               <span class="pill">JavaFX</span>
@@ -234,7 +235,7 @@
               <h3>Digital 4-Bit CPU</h3>
               <span class="card-arrow">↗</span>
             </div>
-            <p>A fully functional 4-bit R-Type CPU built from logic gates in a digital circuit simulator. Implements the complete datapath: program counter, instruction registers, register file, ALU, and control logic — stepping through fetch, decode, execute, and write-back stages.</p>
+            <p>A fully functional 4-bit R-Type CPU built from logic gates in a digital circuit simulator. Implements the complete datapath: program counter, instruction registers, register file, ALU, and control logic. Steps through fetch, decode, execute, and write-back stages.</p>
             <div class="meta">
               <span class="pill pill-accent">Digital Logic</span>
               <span class="pill">CPU Design</span>

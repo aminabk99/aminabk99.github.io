@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero hero-sm">
+        <h1>Blog</h1>
+        <p>Notes on what I'm building and what I learn along the way.</p>
+      </section>
+
+      <section class="section">
+        <div class="post-list-item">
+          <a href="blog-azureautofix.html">
+            <h3>Building AzureAutoFix: an agent that fixes Azure AD sign-in errors on its own</h3>
+            <p class="post-meta">August 2026</p>
+            <p class="post-excerpt">Wiring three AIOps papers into one pipeline, why the hardest bugs weren't in the model, and why I shipped the honest number instead of the flattering one.</p>
+          </a>
+        </div>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>

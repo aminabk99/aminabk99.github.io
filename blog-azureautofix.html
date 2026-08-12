@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building AzureAutoFix | Amina Bilal</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Amina Bilal</div>
+        <nav class="navlinks">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="skills.html">Skills</a>
+          <a href="about.html">About</a>
+          <a href="blog.html" class="active">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <a class="back-link" href="blog.html">&larr; Back to Blog</a>
+
+      <section class="hero hero-sm">
+        <h1>Building AzureAutoFix: an agent that fixes Azure AD sign-in errors on its own</h1>
+        <p class="post-meta">August 2026 · <a href="https://github.com/aminabk99/AzureAutoFix" target="_blank">GitHub</a></p>
+      </section>
+
+      <section class="section prose">
+        <p>
+          AzureAutoFix is an agentic system I built that detects Azure Active Directory sign-in
+          errors, classifies them, and resolves the fixable ones automatically. When someone hits
+          an error like AADSTS50126, they normally have to search it, dig through Microsoft docs,
+          and figure out the fix themselves. AzureAutoFix does that instantly, and for admin-level
+          errors, it applies the fix on its own through the Microsoft Graph API, usually in under
+          10 seconds.
+        </p>
+        <p>
+          There are three outcomes depending on the error type. If it's something the user can fix
+          themselves, like a wrong password, the app tells them exactly what to do in plain English.
+          If it's something the backend can fix, like an account unlock or a missing redirect URI,
+          it calls the Graph API and resolves it with no manual steps. And if it needs a human, it
+          drafts an escalation email and Teams message the user can send straight to IT.
+        </p>
+        <p>
+          Underneath, it runs three published AIOps papers as one pipeline. First, a Drain parser
+          (He et al, ICWS 2017) strips noise like trace IDs and timestamps out of raw error strings
+          and turns them into a clean template. Second, a bidirectional Transformer classifier I
+          built from scratch (based on LogBERT, Guo et al, IJCNN 2021) decides what category of fix
+          an error needs, even for codes it has never seen before. I evaluated it with Leave One Out
+          Cross Validation since I only had 15 labeled error codes, which is the right way to test a
+          model when the dataset is that small. Third, a two-layer LSTM (based on DeepLog, Du et al,
+          CCS 2017) watches the sequence of errors across a session instead of judging one error at
+          a time, so it can catch something like three wrong password attempts followed by a
+          lockout, which is a textbook credential stuffing pattern that looking at errors one by one
+          would miss.
+        </p>
+        <p>
+          Right now it auto-fixes 7 error types through the Graph API, covers 15 total AADSTS codes
+          with the trained classifier, and falls back to the LogBERT-style model's prediction for
+          anything outside that list, so it degrades gracefully instead of just failing.
+        </p>
+        <p>
+          I exposed the whole thing through a FastAPI backend and a Chrome extension that detects
+          the error live on the page. It's deployed on Railway right now. Every write to the Graph
+          API requires a real access token and an API key, and there's no silent fallback to
+          app-level credentials, so nothing gets fixed without someone actually being authorized to
+          fix it.
+        </p>
+        <p>
+          Hardest part: wiring three separate models into one pipeline where each stage depends on
+          the last one being correct took real care. If Drain misreads a log, the classifier gets
+          bad input, so most of my debugging time went into the parsing stage, not the model stage,
+          which wasn't what I expected going in.
+        </p>
+        <p>
+          Most interesting part: being honest about the small-sample transformer. With only 15
+          labeled examples, I could have reported a flattering accuracy number and moved on.
+          Instead I benchmarked it against a simpler hybrid retrieval classifier and shipped the
+          retrieval path to production with an abstain threshold, keeping the small-sample
+          transformer result exactly as it came out. A model that knows when to say it's not sure
+          is more useful than one that always sounds confident.
+        </p>
+      </section>
+
+      <div class="footer">
+        <div class="divider"></div>
+        <p>© <span id="year"></span> Amina Bilal · Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+      </div>
+
+    </main>
+
+    <script src="bg.js"></script>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
