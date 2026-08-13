@@ -95,7 +95,7 @@ header {
   z-index: 1;
 }
 
-/* ── SECTIONS (flat, editorial — hairline dividers, not boxes) ── */
+/* ── SECTIONS (flat, editorial: hairline dividers, not boxes) ── */
 .hero, .section {
   border-bottom: 1px solid var(--border);
   padding: 44px 0;
