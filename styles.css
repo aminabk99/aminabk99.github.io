@@ -228,6 +228,31 @@ p { opacity: 0.9; font-size: 0.97rem; }
   transform: translate(2px, -2px);
 }
 
+.card-links {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.card-links a {
+  color: #a8dcfb;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.card-links a:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.card-links .sep {
+  opacity: 0.3;
+}
+
 /* ── PILLS ── */
 .meta {
   margin-top: 14px;
@@ -389,3 +414,55 @@ p { opacity: 0.9; font-size: 0.97rem; }
 }
 
 .back-link:hover { opacity: 1; }
+
+/* ── "ALSO BUILT" COMPACT LIST ── */
+.mt-list {
+  margin-top: 22px;
+}
+
+.post-list-item-sm {
+  padding: 14px 0;
+}
+
+.post-list-item-sm h3 {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.post-list-item-sm .post-excerpt {
+  font-size: 0.88rem;
+  margin-top: 2px;
+  opacity: 0.75;
+}
+
+/* ── AVAILABILITY BADGE ── */
+.badge-available {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.32);
+  color: #a8dcfb;
+  margin-bottom: 14px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #38bdf8;
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}

@@ -24,6 +24,7 @@
     <main class="container">
 
       <section class="hero">
+        <span class="badge-available"><span class="badge-dot"></span>Available for AI/ML roles &amp; internships</span>
         <span class="eyebrow">Computer & Information Science · UMich–Dearborn</span>
         <h1>Hi, I'm Amina.<br/>I build AI systems that work.</h1>
         <p>
@@ -52,10 +53,9 @@
         <h2>📌 Featured Projects</h2>
         <div class="grid">
 
-          <a class="card card-link" href="https://github.com/aminabk99/AzureAutoFix" target="_blank">
+          <div class="card">
             <div class="card-top">
               <h3>AzureAutoFix</h3>
-              <span class="card-arrow">↗</span>
             </div>
             <p>Agentic Azure AD error resolution system. Classifies AADSTS error codes with a from-scratch PyTorch transformer and resolves admin-level issues via the MS Graph API in under 10 seconds. Deployed on Railway.</p>
             <div class="meta">
@@ -65,27 +65,35 @@
               <span class="pill">MS Graph API</span>
               <span class="pill">Docker</span>
             </div>
-          </a>
-
-          <a class="card card-link" href="https://github.com/aminabk99/docmind" target="_blank">
-            <div class="card-top">
-              <h3>DocMind</h3>
-              <span class="card-arrow">↗</span>
+            <div class="card-links">
+              <a href="blog-azureautofix.html">Case study →</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/aminabk99/AzureAutoFix" target="_blank">GitHub ↗</a>
             </div>
-            <p>Fully local RAG document intelligence app. Upload PDFs, ask natural-language questions, get cited answers with confidence scores. LlamaIndex + ChromaDB + Ollama, so no API keys and no cloud cost. Containerized with Docker Compose.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <h3>M365Mind</h3>
+            </div>
+            <p>Ask your Microsoft 365 governance a question and get the exact policy back, cited. Hybrid retrieval (dense vectors + BM25) fused with Reciprocal Rank Fusion, reranked by a cross-encoder, with an optional local-LLM summary. Runs fully offline, formerly DocMind.</p>
             <div class="meta">
               <span class="pill pill-accent">RAG</span>
-              <span class="pill">LlamaIndex</span>
+              <span class="pill">Hybrid Retrieval</span>
               <span class="pill">ChromaDB</span>
               <span class="pill">Ollama</span>
-              <span class="pill">Docker</span>
+              <span class="pill">FastAPI</span>
             </div>
-          </a>
+            <div class="card-links">
+              <a href="blog-m365mind.html">Case study →</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/aminabk99/M365Mind" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
 
-          <a class="card card-link" href="https://github.com/aminabk99/SentinelCodeAI" target="_blank">
+          <div class="card">
             <div class="card-top">
               <h3>SentinelCodeAI</h3>
-              <span class="card-arrow">↗</span>
             </div>
             <p>Automated GitHub PR review bot powered by a locally-hosted LLM. Verifies webhooks with HMAC-SHA256, analyzes diffs, and posts structured AI reviews covering bugs, security, and performance. No cloud API cost.</p>
             <div class="meta">
@@ -94,12 +102,16 @@
               <span class="pill">Ollama</span>
               <span class="pill">GitHub App API</span>
             </div>
-          </a>
+            <div class="card-links">
+              <a href="blog-sentinelcodeai.html">Case study →</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/aminabk99/SentinelCodeAI" target="_blank">GitHub ↗</a>
+            </div>
+          </div>
 
-          <a class="card card-link" href="https://github.com/aminabk99/Local_LLM_Agent" target="_blank">
+          <div class="card">
             <div class="card-top">
               <h3>Local LLM Agent</h3>
-              <span class="card-arrow">↗</span>
             </div>
             <p>A fully local AI coding agent that autonomously writes, reads, and executes files via a JSON action loop with up to 20 steps. Handles malformed LLM output via a fallback parser. FastAPI backend with session memory and a dark-themed web UI.</p>
             <div class="meta">
@@ -108,40 +120,65 @@
               <span class="pill">Python</span>
               <span class="pill">Ollama</span>
             </div>
-          </a>
-
-          <a class="card card-link" href="https://github.com/aminabk99/ai_credential_detector" target="_blank">
-            <div class="card-top">
-              <h3>AI Credential Detector</h3>
-              <span class="card-arrow">↗</span>
+            <div class="card-links">
+              <a href="blog-local-llm-agent.html">Case study →</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/aminabk99/Local_LLM_Agent" target="_blank">GitHub ↗</a>
             </div>
-            <p>Detects credential stuffing attacks using ML. Trains on authentication logs, engineering features from IP frequency, retry patterns, and timing to distinguish bots from humans. Ships with a FastAPI endpoint for real-time inference.</p>
-            <div class="meta">
-              <span class="pill pill-accent">Security</span>
-              <span class="pill">Python</span>
-              <span class="pill">ML</span>
-              <span class="pill">FastAPI</span>
-            </div>
-          </a>
-
-          <a class="card card-link" href="https://github.com/aminabk99/Gallery-Sorter" target="_blank">
-            <div class="card-top">
-              <h3>Gallery-Sorter</h3>
-              <span class="card-arrow">↗</span>
-            </div>
-            <p>TikTok-style Android gallery cleaner. Loads photos and videos into a vertical swipe feed, swipe left to delete. Handles Android 11+ system permission dialogs, video autoplay, and deleted item history via SharedPreferences.</p>
-            <div class="meta">
-              <span class="pill pill-accent">Android</span>
-              <span class="pill">Kotlin</span>
-              <span class="pill">MVVM</span>
-              <span class="pill">Jetpack</span>
-            </div>
-          </a>
+          </div>
 
         </div>
 
+        <div class="mt-list">
+          <p class="skill-label">Also built</p>
+          <div class="post-list-item post-list-item-sm">
+            <a href="blog-ai-credential-detector.html">
+              <h3>AI Credential Detector</h3>
+              <p class="post-excerpt">ML classifier for credential stuffing attacks, benchmarked across four models with real precision/recall numbers.</p>
+            </a>
+          </div>
+          <div class="post-list-item post-list-item-sm">
+            <a href="blog-gallery-sorter.html">
+              <h3>Gallery-Sorter</h3>
+              <p class="post-excerpt">TikTok-style Android gallery cleaner with swipe-to-delete, built with MVVM and Jetpack.</p>
+            </a>
+          </div>
+          <div class="post-list-item post-list-item-sm">
+            <a href="blog-expenses-tracker.html">
+              <h3>Enterprise Expense Tracker</h3>
+              <p class="post-excerpt">Power Apps expense tracker with a global theming system and a Power Automate approval workflow.</p>
+            </a>
+          </div>
+        </div>
+
         <div class="btnrow">
-          <a class="btn" href="projects.html">All Projects →</a>
+          <a class="btn btn-primary" href="projects.html">All Projects →</a>
+          <a class="btn" href="blog.html">Read the Blog →</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>✍️ From the Blog</h2>
+        <div class="post-list-item post-list-item-sm">
+          <a href="blog-expenses-tracker.html">
+            <h3>Building an enterprise expense tracker on Power Apps, then adding a real approval workflow</h3>
+            <p class="post-excerpt">July 2026 · a global theming system plus a self-service access request flow with real manager approvals.</p>
+          </a>
+        </div>
+        <div class="post-list-item post-list-item-sm">
+          <a href="blog-azureautofix.html">
+            <h3>Building AzureAutoFix: an agent that fixes Azure AD sign-in errors on its own</h3>
+            <p class="post-excerpt">June 2026 · wiring three AIOps papers into one pipeline, and why I shipped the honest number instead of the flattering one.</p>
+          </a>
+        </div>
+        <div class="post-list-item post-list-item-sm">
+          <a href="blog-m365mind.html">
+            <h3>Building M365Mind: ask your Microsoft 365 governance a question and get the real policy back</h3>
+            <p class="post-excerpt">June 2026 · hybrid retrieval, cross-encoder reranking, and a confidence bug that was quietly undermining good answers.</p>
+          </a>
+        </div>
+        <div class="btnrow">
+          <a class="btn" href="blog.html">All Posts →</a>
         </div>
       </section>
 
